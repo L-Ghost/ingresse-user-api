@@ -12,5 +12,9 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return redirect('/users');
 });
+
+$router->get('/users', 'UsersController@index');
+$router->get('/users/{id}', 'UsersController@show');
+$router->post('/users', 'UsersController@store');
