@@ -6,13 +6,13 @@ PHP Lumen API to handle users' information in JSON format.
 
  - composer install
  - php vendor/bin/homestead make
- - configure the **Homestead.yaml** file generated in the project root with the appropriate params for the Vagrant box. You should also map your project path to the path inside the vagrant box, and the url you define to use to the **public** folder of the project inside the Vagrant box. You must define the two database names (production and testing) in this file 
+ - configure the **Homestead.yaml** file generated in the project root with the appropriate params for the Vagrant box. You should also map your project path to the path inside the vagrant box, besides mapping the **url** you define to use to access the **public** folder of the project inside the Vagrant box. You must define the two database names (production and testing) in this file 
  - configure your **hosts** file to access the url defined in the **Homestead.yaml** file
  - configure your **.env** file from the **.env.example** file, filling the necessary params for the database access  
  - vagrant up
  - vagrant ssh
  - cd *path/to/project*
- - migrate the two databases
+ - migrate the two databases  
   > php artisan migrate  
     php artisan migrate --database=mysql_testing
 
@@ -20,9 +20,9 @@ PHP Lumen API to handle users' information in JSON format.
 ### Setup (without Vagrant)
 
  - composer install
- - create a database and a test database on **mysql** and configure your **.env** with the appropriate access parameters
+ - create a database and a test database with **mysql**
  - configure your **.env** file from the **.env.example** file, filling the necessary params for the database access
- - migrate the two databases
+ - migrate the two databases  
  > php artisan migrate  
    php artisan migrate --database=mysql_testing
  - deploy server with PHP on localhost, pointing to the public folder. Example:     
