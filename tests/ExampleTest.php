@@ -12,10 +12,6 @@ class ExampleTest extends TestCase
      */
     public function testExample()
     {
-        $this->get('/');
-
-        $this->assertEquals(
-            $this->app->version(), $this->response->getContent()
-        );
+        $this->get('/')->assertResponseStatus(302); // redirect
     }
 }

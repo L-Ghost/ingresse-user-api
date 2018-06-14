@@ -99,6 +99,10 @@ class UsersController extends Controller
         return false;
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     private function doesNotExist($id)
     {
         return $this->createJsonResponse([
