@@ -66,6 +66,22 @@ class UsersController extends Controller
     }
 
     /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        if ($user) {
+            $user->delete();
+            return $this->createJsonResponse([
+                'message' => 'The user has been deleted', 'id' => $id
+            ], 200);
+        }
+        return $this->doesNotExist($id);
+    }
+
+    /**
      * checks if another user is using the same email
      * @param User $user
      * @param $email
