@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
@@ -35,6 +36,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validationStep($request);
+
         $user = User::whereEmail($request->get('email'))->first();
         if ($user) {
             return $this->createJsonResponse([
@@ -50,6 +53,8 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validationStep($request);
+
         $user = User::find($id);
         if ($user) {
             if ($this->duplicatedEmail($user, $request->get('email'))) {
@@ -79,6 +84,16 @@ class UsersController extends Controller
             ], 200);
         }
         return $this->doesNotExist($id);
+    }
+
+    private function validationStep(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric',
+            'address' => 'required'
+        ]);
     }
 
     /**
