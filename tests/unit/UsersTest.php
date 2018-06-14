@@ -39,4 +39,5 @@ class UsersTest extends \TestCase
             ]
         ])->assertResponseStatus(409);
     }
+
 }
