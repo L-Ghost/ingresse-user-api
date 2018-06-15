@@ -13,6 +13,7 @@ PHP Lumen API to handle users' information in JSON format.
  - vagrant ssh
  - cd *path/to/project*
  - migrate the two databases  
+   
   > php artisan migrate  
     php artisan migrate --database=mysql_testing
 
@@ -23,9 +24,12 @@ PHP Lumen API to handle users' information in JSON format.
  - create a database and a test database with **mysql**
  - configure your **.env** file from the **.env.example** file, filling the necessary params for the database access
  - migrate the two databases  
+  
  > php artisan migrate  
-   php artisan migrate --database=mysql_testing
- - deploy server with PHP on localhost, pointing to the public folder. Example:     
+   php artisan migrate --database=mysql_testing  
+   
+ - deploy server with PHP on localhost, pointing to the public folder. Example:  
+      
  > php -S 0.0.0.0:8000 -t public
  
  

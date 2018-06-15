@@ -6,7 +6,7 @@ return [
     'migrations' => 'migrations',
 
     'connections' => [
-        env('DB_CONNECTION', 'mysql') => [
+        env('DB_CONNECTION', 'mysql') => [ /// production
             'driver'    => 'mysql',
             'host'      => env('DB_HOST'),
             'port'      => env('DB_PORT'),

@@ -85,6 +85,7 @@ class UsersController extends Controller
         return $this->doesNotExist($id);
     }
 
+    // validates data sent to server
     private function validationStep(Request $request)
     {
         $this->validate($request, [
@@ -114,13 +115,14 @@ class UsersController extends Controller
     }
 
     /**
+     * default response for invalid ids
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
     private function doesNotExist($id)
     {
         return $this->createJsonResponse([
-            'messsage' => "The user with id {$id} does not exist"
+            'message' => "The user with id {$id} does not exist"
         ], 404);
     }
 
